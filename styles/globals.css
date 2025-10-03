@@ -100,3 +100,46 @@ a { color: inherit; text-decoration: none; }
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* =======================================================
+   RESPONSIVE (ADAPTACIÓN A MÓVILES)
+   ======================================================= */
+
+/* Se aplica a pantallas de 768px o menos (Tablets y Móviles) */
+@media (max-width: 768px) {
+    
+  /* 1. HEADER - Se vuelve columna y justifica el logo */
+  .header {
+      flex-direction: row; /* Vuelve a fila, pero más simple */
+      flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+      justify-content: space-between; /* Distribuye el logo y el menú */
+      padding: 10px 15px; /* Más padding para que el dedo pueda tocar */
+      height: auto; /* Altura automática */
+  }
+
+  /* Ocultamos el Nav principal para reemplazarlo con el menú de hamburguesa */
+  .header .nav {
+      /* Por ahora, ocultamos el menú que se desborda */
+      display: none; 
+  }
+
+  /* Ocultamos el widget de radio en pantallas pequeñas */
+  .header .radio-widget {
+      display: none; 
+  }
+
+  /* Ajuste de logo */
+  .header .logo {
+      /* Asegura que el logo tenga el tamaño de móvil */
+      font-size: 1.2rem;
+  }
+
+  /* 2. CONTENIDO - Evita que el texto y las secciones sean demasiado anchos */
+  .page-content {
+      padding: 10px; /* Reducimos el padding general */
+  }
+
+  .content-section {
+      padding: 10px 0; /* Reducimos el padding lateral de las secciones */
+  }
+}
