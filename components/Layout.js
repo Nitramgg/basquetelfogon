@@ -1,28 +1,28 @@
-// components/Layout.js
-
 import Link from 'next/link';
-import Head from 'next/head'; // Importación necesaria para metadatos y viewport
+import Head from 'next/head';
+import React, { useState } from 'react'; // <-- ¡IMPORTACIÓN NUEVA!
 
 // Componente de Navegación (Header)
-const Header = () => (
+const Header = ({ isMenuOpen, toggleMenu }) => ( // <-- Recibe el estado del menú
     <header className="header">
         <div className="logo">
             <Link href="/">
-                {/* Usamos una imagen de escudo. Debe estar en public/images/ */}
                 <img src="/images/logo-club.png" alt="Escudo El Fogón Básquet" className="club-logo" width={40} height={40} />
                 <span className="club-name-text">EL FOGÓN</span>
             </Link>
         </div>
         
-        {/* =======================================
-            ¡EL BOTÓN DE HAMBURGUESA QUE FALTABA!
-            ======================================= */}
-        <button className="menu-toggle" aria-label="Abrir Menú">
-            ☰ {/* Icono de hamburguesa (tres barras) */}
+        {/* El botón ahora ejecuta la función toggleMenu */}
+        <button 
+            className="menu-toggle" 
+            aria-label="Abrir/Cerrar Menú"
+            onClick={toggleMenu} // <-- LÓGICA DE CLICK
+        >
+            {isMenuOpen ? '✕' : '☰'} {/* Muestra X si está abierto, ☰ si está cerrado */}
         </button>
-        {/* ======================================= */}
         
-        <nav className="nav">
+        {/* La clase 'open' se añade si el menú está abierto */}
+        <nav className={`nav ${isMenuOpen ? 'open' : ''}`}> 
             <ul>
                 <li><Link href="/">Inicio</Link></li>
                 <li><Link href="/club">El Club</Link></li>
@@ -32,7 +32,7 @@ const Header = () => (
                 <li><Link href="/contacto">Contacto</Link></li>
             </ul>
         </nav>
-        {/* Espacio reservado para la Radio */}
+        
         <div className="radio-widget">🎙️ Radio El Fogón</div>
     </header>
 );
