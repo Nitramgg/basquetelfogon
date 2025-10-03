@@ -1,27 +1,34 @@
+// components/Layout.js
+
 import Link from 'next/link';
 import Head from 'next/head';
-import React, { useState } from 'react'; // <-- ¡IMPORTACIÓN NUEVA!
+import React, { useState } from 'react'; // <-- ¡IMPORTACIÓN CRUCIAL!
 
 // Componente de Navegación (Header)
-const Header = ({ isMenuOpen, toggleMenu }) => ( // <-- Recibe el estado del menú
+// Ahora recibe el estado del menú y la función para cambiarlo
+const Header = ({ isMenuOpen, toggleMenu }) => ( 
     <header className="header">
         <div className="logo">
             <Link href="/">
+                {/* Usamos una imagen de escudo. Debe estar en public/images/ */}
                 <img src="/images/logo-club.png" alt="Escudo El Fogón Básquet" className="club-logo" width={40} height={40} />
                 <span className="club-name-text">EL FOGÓN</span>
             </Link>
         </div>
         
-        {/* El botón ahora ejecuta la función toggleMenu */}
+        {/* =======================================
+            ¡EL BOTÓN DE HAMBURGUESA!
+            ======================================= */}
         <button 
             className="menu-toggle" 
             aria-label="Abrir/Cerrar Menú"
-            onClick={toggleMenu} // <-- LÓGICA DE CLICK
+            onClick={toggleMenu} // LÓGICA DE CLICK
         >
-            {isMenuOpen ? '✕' : '☰'} {/* Muestra X si está abierto, ☰ si está cerrado */}
+            {isMenuOpen ? '✕' : '☰'} {/* Muestra X si abierto, ☰ si cerrado */}
         </button>
+        {/* ======================================= */}
         
-        {/* La clase 'open' se añade si el menú está abierto */}
+        {/* La clase 'open' se añade si el menú está abierto para que CSS lo muestre */}
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}> 
             <ul>
                 <li><Link href="/">Inicio</Link></li>
@@ -48,18 +55,26 @@ const Footer = () => (
     </footer>
 );
 
-// El Layout principal que envuelve cada página de contenido
+// El Layout principal que ahora maneja el estado del menú
 const Layout = ({ children }) => {
+    // 1. Estado para saber si el menú está abierto o cerrado
+    const [isMenuOpen, setIsMenuOpen] = useState(false); 
+    
+    // 2. Función para cambiar el estado al hacer clic
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <div className="main-container">
-            {/* ESTE BLOQUE HEAD ES CRUCIAL:
-              Añade el 'viewport' para la adaptación a móviles (responsive).
-            */}
             <Head>
+                {/* Etiqueta de viewport para hacer el sitio responsive */}
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
 
-            <Header />
+            {/* 3. Pasamos el estado y la función al Header */}
+            <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} /> 
+            
             <main className="page-content">
                 {children} 
             </main>
