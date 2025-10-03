@@ -100,6 +100,36 @@ a { color: inherit; text-decoration: none; }
     max-width: 1200px;
     margin: 0 auto;
 }
+/* =======================================================
+   ESTILO BASE DEL BOTÓN (POR DEFECTO OCULTO)
+   ======================================================= */
+   .menu-toggle {
+    display: none; /* OCULTO POR DEFECTO en escritorio */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-primary); /* Color celeste */
+    padding: 5px;
+}
+
+
+/* =======================================================
+   RESPONSIVE (ADAPTACIÓN A MÓVILES)
+   ======================================================= */
+@media (max-width: 768px) {
+    
+    /* MUESTRA el botón de hamburguesa en móvil */
+    .menu-toggle {
+        display: block; /* AHORA VISIBLE en móvil */
+    }
+
+    /* Ocultamos el Nav principal para reemplazarlo con el menú de hamburguesa */
+    .header .nav {
+        display: none; 
+    }
+    
+}
 
 /* =======================================================
    RESPONSIVE (ADAPTACIÓN A MÓVILES)

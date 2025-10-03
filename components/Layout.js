@@ -13,6 +13,15 @@ const Header = () => (
                 <span className="club-name-text">EL FOGÓN</span>
             </Link>
         </div>
+        
+        {/* =======================================
+            ¡EL BOTÓN DE HAMBURGUESA QUE FALTABA!
+            ======================================= */}
+        <button className="menu-toggle" aria-label="Abrir Menú">
+            ☰ {/* Icono de hamburguesa (tres barras) */}
+        </button>
+        {/* ======================================= */}
+        
         <nav className="nav">
             <ul>
                 <li><Link href="/">Inicio</Link></li>
