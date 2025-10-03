@@ -1,13 +1,14 @@
 // components/Layout.js
 
 import Link from 'next/link';
+import Head from 'next/head'; // Importación necesaria para metadatos y viewport
 
 // Componente de Navegación (Header)
 const Header = () => (
     <header className="header">
         <div className="logo">
             <Link href="/">
-                {/* Usamos una imagen de escudo. Deben subir 'logo-club.png' a public/images/ */}
+                {/* Usamos una imagen de escudo. Debe estar en public/images/ */}
                 <img src="/images/logo-club.png" alt="Escudo El Fogón Básquet" className="club-logo" width={40} height={40} />
                 <span className="club-name-text">EL FOGÓN</span>
             </Link>
@@ -42,6 +43,13 @@ const Footer = () => (
 const Layout = ({ children }) => {
     return (
         <div className="main-container">
+            {/* ESTE BLOQUE HEAD ES CRUCIAL:
+              Añade el 'viewport' para la adaptación a móviles (responsive).
+            */}
+            <Head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            </Head>
+
             <Header />
             <main className="page-content">
                 {children} 
