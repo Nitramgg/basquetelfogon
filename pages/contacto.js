@@ -31,9 +31,29 @@ export default function ContactoPage() {
         <div className="map-location" style={{ flex: 1, minWidth: '300px' }}>
             <h2>Nuestra Ubicación</h2>
             <p>📍 Dirección: Bartolomé Mitre 2250, José Marmol.</p>
-            <div className="map-placeholder" style={{ border: '1px solid #ddd', height: '300px', width: '100%', marginTop: '10px', backgroundColor: '#eee' }}>
-                [<div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Bartolom%C3%A9%20Mitre%202250,%20B1845CGE%20Jos%C3%A9%20Marmol,%20Provincia%20de%20Buenos%20Aires+(Club%20El%20Fog%C3%B3n)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.mapsdirections.info/calcular-la-poblacion-en-un-mapa/">Estimar la población</a></iframe></div>]
+            <div
+              className="map-placeholder"
+              style={{
+                border: '1px solid #ddd',
+                height: '300px',
+                width: '100%',
+                marginTop: '10px',
+                backgroundColor: '#eee',
+                }}
+            >
+            <div style={{ width: '100%' }}>
+              <iframe
+                width="100%"
+                height="300"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Bartolom%C3%A9%20Mitre%202250,%20B1845CGE%20Jos%C3%A9%20Marmol,%20Provincia%20de%20Buenos%20Aires+(Club%20El%20Fog%C3%B3n)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                title="Ubicación El Fogón Básquet"
+              />
             </div>
+          </div>
             <ContactCard title="Teléfono" icon="📞" content="+54 9 11 7504-6209" />
             <ContactCard title="Email" icon="📧" content="contacto@elfogonbasquet.com" />
         </div>
