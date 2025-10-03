@@ -9,7 +9,7 @@ const Header = () => (
             <Link href="/">
                 {/* Usamos una imagen de escudo. Deben subir 'logo-club.png' a public/images/ */}
                 <img src="/images/logo-club.png" alt="Escudo El Fogón Básquet" className="club-logo" width={40} height={40} />
-                <span className="club-name-text">EL FOGÓN BÁSQUET</span>
+                <span className="club-name-text">EL FOGÓN</span>
             </Link>
         </div>
         <nav className="nav">
