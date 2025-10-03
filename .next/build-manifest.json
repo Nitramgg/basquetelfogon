@@ -27,11 +27,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/club": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/club.js"
-    ],
     "/contacto": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
