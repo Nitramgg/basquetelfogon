@@ -1,11 +1,11 @@
 /* ========================================= */
-/* VARIABLES DE COLOR DE EL FOGÓN BÁSQUET */
+/* VARIABLES DE COLOR DE EL FOGÓN BÁSQUET (Celeste y Blanco) */
 /* ========================================= */
 :root {
-  --color-primary: rgb(17, 166, 211); /* Celeste principal */
-  --color-secondary: rgb(255, 255, 255); /* Blanco de acento */
+  --color-primary: #0077C7; /* Azul/Celeste fuerte */
+  --color-secondary: #FFFFFF; /* Blanco como acento */
   --color-text: #333333;
-  --color-background: rgb(230, 193, 193);
+  --color-background: #f8f8f8;
   --color-white: #ffffff;
 }
 
