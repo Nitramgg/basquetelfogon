@@ -43,7 +43,12 @@ export default function ClubPage() {
 }
 
 const Member = ({ name, role }) => (
-    <li className="member-card" style={{ listStyle: 'none', margin: '10px 0', borderLeft: '3px solid var(--color-primary)', paddingLeft: '10px' }}>
-        <strong>{name}</strong> - <span>{role}</span>
-    </li>
+  <li className="member-card" style={{ 
+      listStyle: 'none', 
+      margin: '10px 0', 
+      borderLeft: '3px solid #0077C7', 
+      paddingLeft: '10px' 
+  }}>
+      <strong>{name}</strong> - <span>{role}</span>
+  </li>
 );
