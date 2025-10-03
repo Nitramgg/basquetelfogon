@@ -44,7 +44,7 @@ export default function ContactoPage() {
 
 // Estilos rápidos de ejemplo
 const inputStyle = { width: '100%', padding: '10px', marginBottom: '15px', border: '1px solid #ccc', borderRadius: '4px' };
-const buttonStyle = { backgroundColor: 'var(--color-primary)', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '4px', cursor: 'pointer' };
+const buttonStyle = { backgroundColor: '#0077C7', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '4px', cursor: 'pointer' };
 const ContactCard = ({ title, icon, content }) => (
     <div style={{ padding: '5px 0', borderBottom: '1px dotted #ccc', marginTop: '5px' }}>
         <strong>{icon} {title}:</strong>
