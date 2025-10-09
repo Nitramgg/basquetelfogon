@@ -36,6 +36,7 @@ const Header = ({ isMenuOpen, toggleMenu }) => (
                 <li><Link href="/equipos">Equipos</Link></li>
                 <li><Link href="/resultados">Resultados</Link></li>
                 <li><Link href="/multimedia">Multimedia</Link></li>
+                <li><Link href="/noticias">Noticias</Link></li>
                 <li><Link href="/contacto">Contacto</Link></li>
             </ul>
         </nav>
