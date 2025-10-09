@@ -256,9 +256,6 @@ h1, h2, h3 { color: var(--color-primary); line-height: 1.1; margin-top: 0.8em; m
    ESTILOS ESPECÍFICOS: PÁGINA INDIVIDUAL DEL POST ([slug].js)
    ======================================================= */
 
-.post-content {
-    /* Mismos márgenes y ancho que otras secciones */
-}
 
 .post-content header {
     border-bottom: 2px solid #eee;
