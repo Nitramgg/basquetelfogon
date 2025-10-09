@@ -57,15 +57,14 @@ export default function NoticiasPage() {
 
 // Componente simple para mostrar una tarjeta de noticia/post
 const PostCard = ({ post }) => (
-    <div style={cardStyle}>
-        <h2 style={titleStyle}>{post.title}</h2>
-        <p style={dateStyle}>🗓️ Publicado: {post.date}</p>
-        <p style={summaryStyle}>{post.summary}</p>
-        {/* El Link aquí es estático, luego implementaríamos la página dinámica [slug].js */}
-        <Link href={`/noticias/${post.slug}`} style={readMoreStyle}>
-            Leer más →
-        </Link>
-    </div>
+  <div style={cardStyle}>
+      {/* ... otros elementos ... */}
+      
+      {/* VINCULACIÓN CORRECTA A LA RUTA DINÁMICA */}
+      <Link href={`/noticias/${post.slug}`} style={readMoreStyle}>
+          Leer más →
+      </Link>
+  </div>
 );
 
 // Estilos en línea (seguros para SSR)
