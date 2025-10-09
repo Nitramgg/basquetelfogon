@@ -46,11 +46,19 @@ export default function RadioPage() {
         <h2>Transmisión en Vivo</h2>
         <div className="radio-player-box" style={radioBoxStyle}>
           <h3>🎙️ Radio El Fogón: Al Aire</h3>
-          {/* Aquí se insertaría el código de incrustación del reproductor de la radio.
-             Puede ser un iframe de un servicio como Mixlr, Twitch o un stream directo. */}
-          <div style={placeholderStyle}>
-            [Espacio para el Iframe del Reproductor de Radio en Vivo]
+          {/* REPRODUCTOR EN VIVO SIMULADO CON IFRAME DE YOUTUBE */}
+          <div style={{ height: '350px', width: '100%', marginTop: '15px' }}>
+              <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src="https://www.youtube.com/embed/g8tF6Nn52rE?autoplay=0&mute=0" 
+                  title="YouTube video player" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+              ></iframe>
           </div>
+          {/* FIN DEL REPRODUCTOR EN VIVO SIMULADO */}
         </div>
       </section>
 
