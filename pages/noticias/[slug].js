@@ -17,7 +17,7 @@ const blogPosts = [
       <h2>El Desglose del Partido</h2>
       <p>El primer cuarto fue dominado por la defensa férrea de nuestro equipo. Sin embargo, Estrella ajustó su puntería en el segundo, llevándonos al descanso con una mínima desventaja. Fue en el tercer cuarto donde la experiencia de nuestro capitán, junto a la energía de los juveniles, marcó la diferencia.</p>
       <p>El resultado final de 85 a 79 no solo nos da dos puntos valiosos, sino que consolida nuestra posición en la cima de la tabla. ¡Felicidades al cuerpo técnico y a los jugadores por el esfuerzo!</p>
-      <p style="font-style: italic; margin-top: 20px;">Próximo partido: Visitamos a Deportivo Central. ¡A prepararse!</p>
+      <p>Próximo partido: Visitamos a Deportivo Central. ¡A prepararse!</p>
     `,
     image: '/images/noticia-estrella.jpg' // Necesitas subir esta imagen
   },
@@ -45,12 +45,11 @@ const blogPosts = [
 export default function PostPage({ post }) {
   const router = useRouter();
 
-  // Si no se encuentra la noticia (debería ser raro si usamos getStaticProps), mostramos un error
   if (!post) {
     return <Layout><h1>404 | Noticia no encontrada</h1></Layout>;
   }
 
-  // Usamos dangerouslySetInnerHTML para renderizar el HTML del contenido
+  // Ahora usamos las clases CSS en lugar de los objetos de estilo
   return (
     <Layout>
       <Head>
@@ -59,23 +58,26 @@ export default function PostPage({ post }) {
       </Head>
 
       <article className="post-content content-section">
-        <header style={headerStyle}>
+        {/* CLASES APLICADAS */}
+        <header>
           <h1>{post.title}</h1>
-          <p style={metaStyle}>🗓️ Publicado el: {post.date}</p>
+          <p className="post-meta">🗓️ Publicado el: {post.date}</p>
         </header>
         
         {post.image && (
-          <img src={post.image} alt={post.title} style={imageStyle} />
+          // El estilo de la imagen se aplica a img dentro de .post-content en globals.css
+          <img src={post.image} alt={post.title} /> 
         )}
 
+        {/* CLASES APLICADAS */}
         <div 
           className="post-body" 
           dangerouslySetInnerHTML={{ __html: post.content }} 
-          style={bodyStyle}
         />
         
-        <footer style={footerStyle}>
-          <a href="/noticias" style={backLinkStyle}>← Volver al Listado de Noticias</a>
+        {/* CLASES APLICADAS */}
+        <footer>
+          <a href="/noticias" className="back-link">← Volver al Listado de Noticias</a>
         </footer>
       </article>
     </Layout>
@@ -86,17 +88,14 @@ export default function PostPage({ post }) {
 // 3. FUNCIONES DE NEXT.JS PARA RUTAS DINÁMICAS (SSR)
 // ----------------------------------------------------
 
-// 3.1 getStaticPaths: Le dice a Next.js qué slugs (noticias) debe construir
 export async function getStaticPaths() {
   const paths = blogPosts.map((post) => ({
     params: { slug: post.slug },
   }));
 
-  // fallback: false significa que si pides un slug que no está en 'paths', da 404.
   return { paths, fallback: false }; 
 }
 
-// 3.2 getStaticProps: Obtiene los datos para la noticia específica
 export async function getStaticProps({ params }) {
   const post = blogPosts.find((p) => p.slug === params.slug);
 
@@ -114,39 +113,4 @@ export async function getStaticProps({ params }) {
 }
 
 
-// Estilos en línea para el post (pueden migrarse a globals.css)
-const headerStyle = {
-    borderBottom: '2px solid #eee',
-    paddingBottom: '15px',
-    marginBottom: '20px'
-}
-
-const metaStyle = {
-    color: '#777',
-    fontSize: '0.9rem'
-}
-
-const imageStyle = {
-    width: '100%',
-    maxHeight: '400px',
-    objectFit: 'cover',
-    borderRadius: '8px',
-    marginBottom: '30px'
-}
-
-const bodyStyle = {
-    fontSize: '1.1rem',
-    lineHeight: '1.8'
-}
-
-const footerStyle = {
-    marginTop: '40px',
-    paddingTop: '20px',
-    borderTop: '1px solid #eee'
-}
-
-const backLinkStyle = {
-    color: '#0077C7',
-    fontWeight: 'bold',
-    textDecoration: 'none'
-}
+// ¡Hemos eliminado todos los objetos de estilo en línea de este archivo!

@@ -42,14 +42,17 @@ export default function NoticiasPage() {
         <p>Toda la información y las crónicas de nuestros equipos en un solo lugar.</p>
       </div>
 
-      <section className="blog-posts content-section" style={sectionStyle}>
+      {/* CLASE CSS APLICADA */}
+      <section className="blog-posts content-section">
         {posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
       </section>
 
-      <section className="archives-cta" style={{ textAlign: 'center', marginTop: '40px' }}>
-          <Link href="#" style={ctaButtonStyle}>Ver Archivo Completo →</Link>
+      {/* CLASE CSS APLICADA */}
+      <section className="archives-cta">
+        {/* Usamos la clase global .cta-button que ya está definida */}
+        <Link href="#" className="cta-button">Ver Archivo Completo →</Link>
       </section>
     </Layout>
   );
@@ -57,64 +60,17 @@ export default function NoticiasPage() {
 
 // Componente simple para mostrar una tarjeta de noticia/post
 const PostCard = ({ post }) => (
-  <div style={cardStyle}>
-      {/* ... otros elementos ... */}
-      
-      {/* VINCULACIÓN CORRECTA A LA RUTA DINÁMICA */}
-      <Link href={`/noticias/${post.slug}`} style={readMoreStyle}>
-          Leer más →
-      </Link>
+  <div className="post-card">
+    {/* CLASES CSS APLICADAS */}
+    <h2 className="post-card-title">{post.title}</h2>
+    <p className="post-card-date">🗓️ Publicado: {post.date}</p>
+    <p className="post-card-summary">{post.summary}</p>
+    
+    {/* CLASE CSS APLICADA */}
+    <Link href={`/noticias/${post.slug}`} className="post-read-more">
+      Leer más →
+    </Link>
   </div>
 );
 
-// Estilos en línea (seguros para SSR)
-const sectionStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '30px',
-    marginTop: '30px'
-};
-
-const cardStyle = {
-    padding: '25px',
-    border: '1px solid #ddd',
-    borderRadius: '8px',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-    backgroundColor: '#fff'
-};
-
-const titleStyle = {
-    color: '#0077C7', // Celeste
-    marginBottom: '10px',
-    fontSize: '1.5rem'
-};
-
-const dateStyle = {
-    color: '#555',
-    fontSize: '0.9rem',
-    marginBottom: '15px',
-    borderBottom: '1px dotted #ccc',
-    paddingBottom: '5px'
-};
-
-const summaryStyle = {
-    marginBottom: '15px'
-};
-
-const readMoreStyle = {
-    display: 'inline-block',
-    color: '#0077C7',
-    fontWeight: 'bold',
-    textDecoration: 'none'
-};
-
-const ctaButtonStyle = {
-    display: 'inline-block',
-    padding: '10px 20px',
-    backgroundColor: '#0077C7',
-    color: 'white',
-    borderRadius: '4px',
-    textDecoration: 'none',
-    fontWeight: 'bold',
-    marginTop: '10px'
-};
+// ¡Hemos eliminado todos los estilos en línea al final del archivo!
